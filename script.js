@@ -10,16 +10,45 @@ resets if game is tied,
  */
 class GameMode {
     constructor() {
-        this.rowTally = [[0, 0][0, 0][0, 0]]
-        this.columnTally = [[0, 0][0, 0][0, 0]]
-        this.diagonalTally = [[0, 0][0, 0]]
+        this.rowTally = 0;
+        this.columnTally = 0;
+        this.diagonalTally = 0;
         this.numMoves = 0;
         this.turn = 0;
+        this.box1 = document.querySelector('#box1').innerHTML;
+        this.box2 = document.querySelector('#box2').innerHTML;
+        this.box3 = document.querySelector('#box3').innerHTML;
+        this.box4 = document.querySelector('#box4').innerHTML;
+        this.box5 = document.querySelector('#box5').innerHTML;
+        this.box6 = document.querySelector('#box6').innerHTML;
+        this.box7 = document.querySelector('#box7').innerHTML;
+        this.box8 = document.querySelector('#box8').innerHTML;
+        this.box9 = document.querySelector('#box9').innerHTML;
+        this.tallyRow = 0;
+        this.player = '';
+    }
+
+    playerChoice(){
+        let notify = document.querySelector('#notification');
+        notify.innerHTML = 'Player 1 Choose X or O by dragging that piece to a grid of choice'
+        let xChoice = document.querySelector('#Xbtn').innerHTML;
+        let oChoice = document.querySelector('#Ybtn').innerHTML;
+        if(this.box1 === xChoice || this.box2 === xChoice || this.box3 === xChoice || this.box4 === xChoice || this.box5 === xChoice || this.box6 === xChoice || this.box7 === xChoice || this.box8 === xChoice || this.box9 === xChoice ){
+            notify.innerHTML = `Player 1 is ${xChoice} and Player 2 is ${oChoice}`;
+        }else{
+            notify.innerHTML = `Player 1 is ${oChoice} and Player 2 is ${xChoice}`;
+        }
 
     }
 
-}
+    getBoxValue(box){
+        if(this.box1 === document.querySelector('#Xbtn').innerHTML){
+             this.tallyRow = 1;
+        }
+            }
 
+}
+//drag and drop functions
 function drag(event){
     let dt = event.dataTransfer.setData('text/plain', event.target.id);
 }
@@ -34,6 +63,8 @@ function onDrop(event){
     event.dataTransfer.clearData();
 
 }
+
+
 
 /*Create another class call Player sets player to 0, and gets turn section from HTML
 Methods: what player 1 has, tells who's turn it is
