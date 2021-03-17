@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<h3>Objective</h3>
+
+<div class="navbar"></div>
+
+<div id="notification">Notifications</div>
+
+<div class="button-container-x">
+    <p class="button" id="Xbtn" draggable="true" ondragstart="drag(event)">X</p>
+</div>
+<div class="button-container-y">
+    <button class="button" id="Ybtn">Y</button>
+</div>
+<div class="grid">
+    <div class="row">
+        <div class="box" id="box1" ondragover="onDragOver(event)" ondrop="onDrop(event)"></div>
+        <div class="box" id="box2" ondragover="onDragOver(event)" ondrop="onDrop(event)">2</div>
+        <div class="box" id="box3" ondragover="onDragOver(event)" ondrop="onDrop(event)">3</div>
+    </div>
+    <div class="row">
+        <div class="box" id="box4" ondragover="onDragOver(event)" ondrop="onDrop(event)">4</div>
+        <div class="box" id="box5" ondragover="onDragOver(event)" ondrop="onDrop(event)">5</div>
+        <div class="box" id="box6" ondragover="onDragOver(event)" ondrop="onDrop(event)">6</div>
+    </div>
+    <div class="row">
+        <div class="box" id="box7" ondragover="onDragOver(event)" ondrop="onDrop(event)">7</div>
+        <div class="box" id="box8" ondragover="onDragOver(event)" ondrop="onDrop(event)">8</div>
+        <div class="box" id="box9" ondragover="onDragOver(event)" ondrop="onDrop(event)">9</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
