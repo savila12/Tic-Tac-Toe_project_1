@@ -21,12 +21,12 @@ let nextTurn = (turn) => {
     if(turn === 'X'){
         xPiece.style.visibility = 'hidden';
         oPiece.style.visibility = '';
-        //notify.innerHTML = "O's Turn"
+        notify.innerHTML = "O's Turn"
     }
     else if(turn === 'O'){
         oPiece.style.visibility = 'hidden';
         xPiece.style.visibility = '';
-        //notify.innerHTML = "X's Turn"
+        notify.innerHTML = "X's Turn"
     }
 }
 
@@ -48,10 +48,11 @@ function onDrop(event) {
     const dragElement = document.getElementById(id);
     const dropZone = event.target;
     dropZone.innerHTML = dragElement.innerHTML;
-    playerChoice(dropZone.innerHTML);
+    //playerChoice(dropZone.innerHTML);
     nextTurn(dropZone.innerHTML);
     event.dataTransfer.clearData();
 
+    //Create an array of arrays to place all boxes in
     let squares = [[],[],[]];
 
     for(let i = 1; i < 10; i++){
@@ -73,50 +74,51 @@ function onDrop(event) {
     }
 
 
-    let chooseWinner = '';
+    let chooseWinner = 'Winner Winner Chicken Dinner';
 
     if(squares[0].join('') === 'XXX' || squares[0].join('') === 'OOO'){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner); //testing  to see if winner shows when there's 3 in row
         reset();
     }
     else if (squares[1].join('') === 'XXX' || squares[1].join('') === 'OOO'){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if (squares[2].join('') === 'XXX' || squares[2].join('') === 'OOO'){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if (squares[0][0] === squares[1][0] && squares[1][0] === squares[2][0] && (squares[0][0], squares[1][0], squares[2][0]) !== ''){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if (squares[0][1] === squares[1][1] && squares[1][1] === squares[2][1] && (squares[0][1], squares[1][1], squares[2][1]) !== ''){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if (squares[0][2] === squares[1][2] && squares[1][2] === squares[2][2] && (squares[0][2], squares[1][2], squares[2][2]) !== ''){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if(squares[0][0] === squares[1][1] && squares[1][1] === squares[2][2] && (squares[0][0], squares[1][1], squares[2][2]) !== ''){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if(squares[0][2] === squares[1][1] && squares[1][1] === squares[2][0] && (squares[0][2], squares[1][1], squares[2][0]) !== ''){
-        chooseWinner = 'Winner';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
     }
     else if((squares[0].join('') + squares[1].join('') + squares[2].join('')).length === 9 && chooseWinner !== 'Winner'){
         chooseWinner = 'Its a Draw';
+        notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
         //add event listener for reset button
@@ -140,7 +142,7 @@ function reset(){
         if(oPiece.style.visibility === 'hidden'){
             oPiece.style.visibility = '';
         }
-        playerChoice();
+        notify.innerHTML = 'Winner Choose X or O';
     })
 }
 
