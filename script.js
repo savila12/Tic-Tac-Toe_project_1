@@ -8,52 +8,30 @@ next turn,
 keeps tally for possible wins,
 resets if game is tied,
  */
-class GameMode {
-    constructor() {
 
-        this.box1 = document.querySelector('#box1').innerHTML;
-        this.box2 = document.querySelector('#box2').innerHTML;
-        this.box3 = document.querySelector('#box3').innerHTML;
-        this.box4 = document.querySelector('#box4').innerHTML;
-        this.box5 = document.querySelector('#box5').innerHTML;
-        this.box6 = document.querySelector('#box6').innerHTML;
-        this.box7 = document.querySelector('#box7').innerHTML;
-        this.box8 = document.querySelector('#box8').innerHTML;
-        this.box9 = document.querySelector('#box9').innerHTML;
+// const box1 = document.querySelector('#box1').innerHTML;
+// const box2 = document.querySelector('#box2').innerHTML;
+// const box3 = document.querySelector('#box3').innerHTML;
+// const box4 = document.querySelector('#box4').innerHTML;
+// const box5 = document.querySelector('#box5').innerHTML;
+// const box6 = document.querySelector('#box6').innerHTML;
+// const box7 = document.querySelector('#box7').innerHTML;
+// const box8 = document.querySelector('#box8').innerHTML;
+// const box9 = document.querySelector('#box9').innerHTML;
 
+function playerChoice(event){
+    let notify = document.querySelector('#notification');
+    let xChoice = document.querySelector('#Xbtn').innerHTML;
+    let oChoice = document.querySelector('#Ybtn').innerHTML;
+    if(event === xChoice){
+        notify.innerHTML = `Player 1 is ${xChoice} and Player 2 is ${oChoice}`;
+        //this.player = xChoice;
+    }else{
+        notify.innerHTML = `Player 1 is ${oChoice} and Player 2 is ${xChoice}`;
+        //this.player = oChoice;
     }
-
-    playerChoice(){
-        let notify = document.querySelector('#notification');
-        notify.innerHTML = 'Player 1 Choose X or O by dragging that piece to a grid of choice'
-        let xChoice = document.querySelector('#Xbtn').innerHTML;
-        let oChoice = document.querySelector('#Ybtn').innerHTML;
-        if(this.box1 === xChoice || this.box2 === xChoice || this.box3 === xChoice || this.box4 === xChoice || this.box5 === xChoice || this.box6 === xChoice || this.box7 === xChoice || this.box8 === xChoice || this.box9 === xChoice ){
-            notify.innerHTML = `Player 1 is ${xChoice} and Player 2 is ${oChoice}`;
-            this.player = xChoice;
-        }else{
-            notify.innerHTML = `Player 1 is ${oChoice} and Player 2 is ${xChoice}`;
-            this.player = oChoice;
-        }
-
-
-    }
-
-
-    gameOutcome(){
-        let xChoice = document.querySelector('#Xbtn').innerHTML;
-        let oChoice = document.querySelector('#Ybtn').innerHTML;
-        const row1Outcome = this.box1 = this.box2 = this.box3 = xChoice;
-        const row2Outcome = this.box4 = this.box5 = this.box6 = xChoice;
-
-        if((this.box1 && this.box2 && this.box3 === xChoice) || (this.box1 && this.box2 && this.box3 === oChoice)) {
-
-
-        }
-
-    }
-
 }
+
 // const moves = new Array(9);
 // console.log(moves);
 // const squares = document.querySelectorAll('.box');
@@ -70,7 +48,16 @@ class GameMode {
 //     }, {once: true})
 // })
 
-
+let nextTurn = (turn) => {
+    if(turn === 'X'){
+        document.getElementById('Xbtn').style.visibility = 'hidden';
+        document.getElementById('Ybtn').style.visibility = '';
+    }
+    else if(turn === 'O'){
+        document.getElementById('Ybtn').style.visibility = 'hidden';
+        document.getElementById('Xbtn').style.visibility = '';
+    }
+}
 //drag and drop functions
 function drag(event){
     event.dataTransfer.setData('text/plain', event.target.id);
@@ -81,7 +68,7 @@ function onDragOver(event){
 function onDrop(event) {
     event.preventDefault();
     //Make sure players can't change occupied square
-    if(document.getElementById(event.target.id).innerHTML == 'X' || document.getElementById(event.target.id).innerHTML == 'O'){
+    if(document.getElementById(event.target.id).innerHTML === 'X' || document.getElementById(event.target.id).innerHTML === 'O'){
         return;
     }
 
@@ -89,7 +76,10 @@ function onDrop(event) {
     const dragElement = document.getElementById(id);
     const dropZone = event.target;
     dropZone.innerHTML = dragElement.innerHTML;
+    playerChoice(dropZone.innerHTML);
+    nextTurn(dropZone.innerHTML);
     event.dataTransfer.clearData();
+
     let squares = [[],[],[]];
 
     for(let i = 1; i < 10; i++){
@@ -146,13 +136,25 @@ function onDrop(event) {
     else if((squares[0].join('') + squares[1].join('') + squares[2].join('')).length === 9 && chooseWinner !== 'Winner'){
         chooseWinner = 'Its a Draw';
         console.log(chooseWinner);
+        reset();
         //add event listener for reset button
+
     }
-
-
-
 }
-let gameOn = new GameMode();
+
+
+function reset(){
+    document.getElementById('reset').removeAttribute('hidden');
+
+    const resetBtn = document.querySelector('#reset');
+    resetBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        for(let i = 1; i < 10; i++){
+            document.querySelector('#box' + i).innerHTML = '';
+        }
+    })
+}
+
 /*Create another class call Player sets player to 0, and gets turn section from HTML
 Methods: what player 1 has, tells who's turn it is
  */
