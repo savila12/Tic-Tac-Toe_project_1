@@ -3,8 +3,6 @@ body {
     flex-direction: column;
     justify-content: center; /*center horizontally*/
     align-items: center; /*center vertically*/
-
-
 }
 
 .grid {
@@ -14,7 +12,7 @@ body {
 
     height: 400px;
     width: 400px;
-    paddin: 5px;
+    padding: 5px;
 }
 
 .row {
@@ -35,8 +33,8 @@ body {
 .button-container-x {
     position: absolute;
     display: flex;
-    left: 270px;
-    top: 320px;
+    left: 25vw;
+    top: 40vh;
     height: 100px;
     width: 100px;
     align-items: center;
@@ -52,8 +50,8 @@ body {
 .button-container-y {
     position: absolute;
     display: flex;
-    left: 900px;
-    top: 320px;
+    left: 75vw;
+    top: 40vh;
     height: 100px;
     width: 100px;
     align-items: center;
@@ -73,9 +71,33 @@ body {
     border-left: solid;
     border-bottom: solid;
 }
-#box4
-#box5
-#box6
-#box7
-#box8
-#box9
+#box4{
+    border-top: solid;
+    border-right: solid;
+    border-bottom: solid;
+}
+#box5{
+    border: solid;
+}
+#box6{
+    border-top: solid;
+    border-left: solid;
+    border-bottom: solid;
+}
+#box7{
+    border-top: solid;
+    border-right: solid;
+}
+#box8{
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+}
+#box9{
+    border-top: solid;
+    border-left:solid;
+}
+
+#reset{
+ top: 90vh;
+}

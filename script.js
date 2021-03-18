@@ -48,30 +48,111 @@ class GameMode {
 
         if((this.box1 && this.box2 && this.box3 === xChoice) || (this.box1 && this.box2 && this.box3 === oChoice)) {
 
+
         }
 
     }
 
 }
+// const moves = new Array(9);
+// console.log(moves);
+// const squares = document.querySelectorAll('.box');
+// let turn = 0;
+// let turnCount = 0;
+// squares.forEach((square, index) => {
+//     square.addEventListener('ondrop', (event) => {
+//        moves[index] = turn;
+//        console.log(moves);
+//        event.target.innerHTML = turn;
+//        turn = (turnCount % 2 === 0) ? 'O' : 'X';
+//        turnCount++;
+//
+//     }, {once: true})
+// })
+
 
 //drag and drop functions
 function drag(event){
-    let dt = event.dataTransfer.setData('text/plain', event.target.id);
+    event.dataTransfer.setData('text/plain', event.target.id);
 }
 function onDragOver(event){
     event.preventDefault();
 }
-function onDrop(event){
+function onDrop(event) {
+    event.preventDefault();
+    //Make sure players can't change occupied square
+    if(document.getElementById(event.target.id).innerHTML == 'X' || document.getElementById(event.target.id).innerHTML == 'O'){
+        return;
+    }
+
     const id = event.dataTransfer.getData('text');
     const dragElement = document.getElementById(id);
     const dropZone = event.target;
     dropZone.innerHTML = dragElement.innerHTML;
     event.dataTransfer.clearData();
+    let squares = [[],[],[]];
+
+    for(let i = 1; i < 10; i++){
+        let square = document.querySelector('#box' + i).innerHTML;
+        if(i <= 3){
+            squares[0].push(square);
+        }
+        else if(i > 3 && i <= 6){
+            squares[1].push(square);
+        }
+        else{
+            squares[2].push(square);
+        }
+    }
+
+    for(let i = 0; i < squares.length; i++){
+        console.log(squares[i]);
+    }
+
+    let chooseWinner = '';
+
+    if(squares[0].join('') === 'XXX' || squares[0].join('') === 'OOO'){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if (squares[1].join('') === 'XXX' || squares[1].join('') === 'OOO'){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if (squares[2].join('') === 'XXX' || squares[2].join('') === 'OOO'){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if (squares[0][0] === squares[1][0] && squares[1][0] === squares[2][0] && (squares[0][0], squares[1][0], squares[2][0]) !== ''){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if (squares[0][1] === squares[1][1] && squares[1][1] === squares[2][1] && (squares[0][1], squares[1][1], squares[2][1]) !== ''){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if (squares[0][2] === squares[1][2] && squares[1][2] === squares[2][2] && (squares[0][2], squares[1][2], squares[2][2]) !== ''){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if(squares[0][0] === squares[1][1] && squares[1][1] === squares[2][2] && (squares[0][0], squares[1][1], squares[2][2]) !== ''){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if(squares[0][2] === squares[1][1] && squares[1][1] === squares[2][0] && (squares[0][2], squares[1][1], squares[2][0]) !== ''){
+        chooseWinner = 'Winner';
+        console.log(chooseWinner);
+    }
+    else if((squares[0].join('') + squares[1].join('') + squares[2].join('')).length === 9 && chooseWinner !== 'Winner'){
+        chooseWinner = 'Its a Draw';
+        console.log(chooseWinner);
+        //add event listener for reset button
+    }
+
+
 
 }
-
-
-
+let gameOn = new GameMode();
 /*Create another class call Player sets player to 0, and gets turn section from HTML
 Methods: what player 1 has, tells who's turn it is
  */
