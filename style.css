@@ -47,7 +47,7 @@ body {
     font-size: 40px;
 }
 
-.button-container-y {
+.button-container-o {
     position: absolute;
     display: flex;
     left: 75vw;
@@ -100,4 +100,8 @@ body {
 
 #reset{
  top: 90vh;
+}
+
+.hide-button{
+    display: none;
 }

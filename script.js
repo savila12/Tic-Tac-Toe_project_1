@@ -1,6 +1,6 @@
 const notify = document.querySelector('#notification');
 const xPiece = document.querySelector('#Xbtn');
-const oPiece = document.querySelector('#Ybtn');
+const oPiece = document.querySelector('#Obtn');
 const resetBtn = document.querySelector('#reset');
 
 
@@ -80,6 +80,7 @@ function onDrop(event) {
         notify.innerHTML = chooseWinner;
         console.log(chooseWinner); //testing  to see if winner shows when there's 3 in row
         reset();
+
     }
     else if (squares[1].join('') === 'XXX' || squares[1].join('') === 'OOO'){
         notify.innerHTML = chooseWinner;
@@ -121,29 +122,35 @@ function onDrop(event) {
         notify.innerHTML = chooseWinner;
         console.log(chooseWinner);
         reset();
-        //add event listener for reset button
-
     }
 }
 
 //reset pops up after the game is finished
 function reset(){
-    document.getElementById('reset').removeAttribute('hidden');
+    document.getElementById('reset').classList.remove('hide-button');
 
-    resetBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        for(let i = 1; i < 10; i++){
-            document.querySelector('#box' + i).innerHTML = '';
-        }
+    resetBtn.addEventListener('click', resetGame);
 
-        if(xPiece.style.visibility === 'hidden'){
-            xPiece.style.visibility = '';
-        }
-        if(oPiece.style.visibility === 'hidden'){
-            oPiece.style.visibility = '';
-        }
-        notify.innerHTML = 'Winner Choose X or O';
-    })
+    if(resetBtn.hasAttribute('hide-button'))
+    {
+        resetBtn.removeEventListener('click', resetGame);
+    }
+}
+
+function resetGame(event) {
+    event.preventDefault();
+    for (let i = 1; i < 10; i++) {
+        document.querySelector('#box' + i).innerHTML = '';
+    }
+
+    if (xPiece.style.visibility === 'hidden') {
+        xPiece.style.visibility = '';
+    }
+    if (oPiece.style.visibility === 'hidden') {
+        oPiece.style.visibility = '';
+    }
+    notify.innerHTML = 'Winner Choose X or O';
+    document.getElementById('reset').classList.add('hide-button');
 }
 
 
