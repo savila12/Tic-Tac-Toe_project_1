@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center; /*center horizontally*/
@@ -7,11 +8,18 @@ body {
     background-image: radial-gradient( white, lightblue, blue);
 }
 h1{
+    font-family: 'Bangers', cursive;
     font-size: 100px;
     margin-bottom: 0;
+    margin-top: 0;
 }
+
+h3{
+    font-family: 'Bangers', cursive;
+}
+
 #notification{
-    font-family: "Comic Sans", sans-serif;
+    font-family: 'Bangers', cursive;
     font-size: 50px;
 }
 .grid {
@@ -37,6 +45,7 @@ h1{
     height: 125px;
     width: 125px;
     font-size: 70px;
+    font-family: 'Bangers', cursive;
 
 }
 
@@ -49,6 +58,7 @@ h1{
     width: 100px;
     align-items: center;
     justify-content: center;
+    font-family: 'Bangers', cursive;
 }
 
 .button {
@@ -56,8 +66,13 @@ h1{
     width: 100px;
     font-size: 70px;
     text-align: center;
+
 }
 
+.button:hover{
+    text-decoration-color: darkgray;
+
+}
 .button-container-o {
     position: absolute;
     display: flex;
@@ -67,6 +82,7 @@ h1{
     width: 100px;
     align-items: center;
     justify-content: center;
+    font-family: 'Bangers', cursive;
 }
 
 #box1 {
@@ -110,9 +126,46 @@ h1{
 }
 
 #reset{
- top: 90vh;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: navajowhite;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#reset:hover {background-color: yellow}
+
+#reset:active {
+    background-color: navajowhite;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .hide-button{
     display: none;
+}
+
+@media only screen and (max-width: 830px){
+    h1{
+        font-size: 40px;
+    }
+    #notification{
+        font-size: 25px;
+    }
+    .box{
+        width: 100%;
+    }
+    .button-container-x{
+        left: 2vw;
+        top: 69vh
+    }
+    .button-container-o{
+        left: 70vw;
+        top: 68vh;
+    }
 }
