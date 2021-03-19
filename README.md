@@ -2,6 +2,12 @@
 
 ![IMG_8512](https://user-images.githubusercontent.com/41445975/111794017-d03a8c00-8893-11eb-938e-2358b01fcc26.jpg)
 
+HOW TO:
+When the screen loads up it will ask player 1 to choose X or O by draging the piece to the desired square.
+It will notify who's turn it will be and also removing the piece that went.
+Once a winner or tie is determined a reset button will pop up to restart the game.
+HAVE FUN!!
+
 First thing I wanted to do was draw a wireframe (picture above) of how I wanted my web game to look like.
 Then decided how I wanted the user to implement the pieces to the game, which I chose a drag and drop feature.
 A notification bar on top will let the user/s know who's turn it is and the winner of the outcome.
