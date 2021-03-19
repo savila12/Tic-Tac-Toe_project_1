@@ -16,7 +16,7 @@
 
 
 
-<div id="notification">Player 1 Choose X or O</div>
+<div id="notification">Player 1 Choose X or O. Drag piece to desired square</div>
 
 <div class="button-container-x">
     <p class="button" id="Xbtn" draggable="true" ondragstart="drag(event)">X</p>
@@ -41,10 +41,9 @@
         <div class="box" id="box9" ondragover="onDragOver(event)" ondrop="onDrop(event)"></div>
     </div>
 </div>
-<div clsas="reset-container">
-    <button class="resetButton hide-button" id="reset">RESET</button>
+<div class="reset-container">
+    <button class="resetButton hide-button winblink" id="reset" >RESET</button>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>

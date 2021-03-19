@@ -4,17 +4,6 @@ const oPiece = document.querySelector('#Obtn');
 const resetBtn = document.querySelector('#reset');
 
 
-//Create a function that notifies the user what option they chose
-function playerChoice(choice){
-    let xChoice = xPiece.innerHTML;
-    let oChoice = oPiece.innerHTML;
-
-    if(choice === xChoice){
-        notify.innerHTML = `Player 1 is ${xChoice} and Player 2 is ${oChoice}`;
-    }else{
-        notify.innerHTML = `Player 1 is ${oChoice} and Player 2 is ${xChoice}`;
-    }
-}
 
 //function to determine who's turn it is by hiding the piece that has already gone
 let nextTurn = (turn) => {
@@ -80,7 +69,6 @@ function onDrop(event) {
         notify.innerHTML = chooseWinner;
         console.log(chooseWinner); //testing  to see if winner shows when there's 3 in row
         reset();
-
     }
     else if (squares[1].join('') === 'XXX' || squares[1].join('') === 'OOO'){
         notify.innerHTML = chooseWinner;

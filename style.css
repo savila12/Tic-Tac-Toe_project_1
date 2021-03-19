@@ -150,6 +150,15 @@ h3{
     display: none;
 }
 
+.winblink{
+    animation: multiColor 1s linear 0s infinite;
+}
+
+@keyframes multiColor {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
 @media (hover:none ) and (pointer: coarse) and (max-width: 830px){
     h1{
         font-size: 40px;
