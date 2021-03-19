@@ -1,10 +1,10 @@
 # Tic-Tac-Toe_project_1
 ## HOW TO:
-**- When the screen loads up it will ask player 1 to choose X or O by draging the piece to the desired square.**
-**- It will notify who's turn it will be and also removing the piece that went.**
-**- A winner is determined by having the same pieces consecutively placed in a row/column/diagonally.**
-**- A reset button will pop up to restart the game and the winner of the previous rounds goes first.**
-**- HAVE FUN!!**
+**When the screen loads up it will ask player 1 to choose X or O by draging the piece to the desired square.**
+**It will notify who's turn it will be and also removing the piece that went.**
+**A winner is determined by having the same pieces consecutively placed in a row/column/diagonally.**
+**A reset button will pop up to restart the game and the winner of the previous rounds goes first.**
+**HAVE FUN!!**
 
 The game is playabe on any desktop or laptop with a browser and internet connection.
 You can view the game on a phone but no touch screen feature has been implemented as of 3/19/2021
