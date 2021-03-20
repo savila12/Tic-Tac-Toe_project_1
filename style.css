@@ -159,7 +159,7 @@ h3{
     to {background-color: yellow;}
 }
 
-@media (hover:none ) and (pointer: coarse) and (max-width: 830px){
+@media screen and (hover:none ) and (pointer: coarse) and (max-width: 830px){
     h1{
         font-size: 40px;
     }
