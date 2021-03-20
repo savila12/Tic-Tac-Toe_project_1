@@ -67,41 +67,65 @@ function onDrop(event) {
 
     if(squares[0].join('') === 'XXX' || squares[0].join('') === 'OOO'){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box1').classList.add('winblink');
+        document.getElementById('box2').classList.add('winblink');
+        document.getElementById('box3').classList.add('winblink');
         console.log(chooseWinner); //testing  to see if winner shows when there's 3 in row
         reset();
     }
     else if (squares[1].join('') === 'XXX' || squares[1].join('') === 'OOO'){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box4').classList.add('winblink');
+        document.getElementById('box5').classList.add('winblink');
+        document.getElementById('box6').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
     else if (squares[2].join('') === 'XXX' || squares[2].join('') === 'OOO'){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box7').classList.add('winblink');
+        document.getElementById('box8').classList.add('winblink');
+        document.getElementById('box9').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
     else if (squares[0][0] === squares[1][0] && squares[1][0] === squares[2][0] && (squares[0][0], squares[1][0], squares[2][0]) !== ''){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box1').classList.add('winblink');
+        document.getElementById('box4').classList.add('winblink');
+        document.getElementById('box7').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
     else if (squares[0][1] === squares[1][1] && squares[1][1] === squares[2][1] && (squares[0][1], squares[1][1], squares[2][1]) !== ''){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box2').classList.add('winblink');
+        document.getElementById('box5').classList.add('winblink');
+        document.getElementById('box8').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
     else if (squares[0][2] === squares[1][2] && squares[1][2] === squares[2][2] && (squares[0][2], squares[1][2], squares[2][2]) !== ''){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box3').classList.add('winblink');
+        document.getElementById('box6').classList.add('winblink');
+        document.getElementById('box9').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
     else if(squares[0][0] === squares[1][1] && squares[1][1] === squares[2][2] && (squares[0][0], squares[1][1], squares[2][2]) !== ''){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box1').classList.add('winblink');
+        document.getElementById('box5').classList.add('winblink');
+        document.getElementById('box9').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
     else if(squares[0][2] === squares[1][1] && squares[1][1] === squares[2][0] && (squares[0][2], squares[1][1], squares[2][0]) !== ''){
         notify.innerHTML = chooseWinner;
+        document.getElementById('box3').classList.add('winblink');
+        document.getElementById('box5').classList.add('winblink');
+        document.getElementById('box7').classList.add('winblink');
         console.log(chooseWinner);
         reset();
     }
@@ -139,6 +163,15 @@ function resetGame(event) {
     }
     notify.innerHTML = 'Winner Choose X or O';
     document.getElementById('reset').classList.add('hide-button');
+    document.getElementById('box1').classList.remove('winblink');
+    document.getElementById('box2').classList.remove('winblink');
+    document.getElementById('box3').classList.remove('winblink');
+    document.getElementById('box4').classList.remove('winblink');
+    document.getElementById('box5').classList.remove('winblink');
+    document.getElementById('box6').classList.remove('winblink');
+    document.getElementById('box7').classList.remove('winblink');
+    document.getElementById('box8').classList.remove('winblink');
+    document.getElementById('box9').classList.remove('winblink');
 }
 
 
