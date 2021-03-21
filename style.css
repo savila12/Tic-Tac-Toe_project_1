@@ -6,7 +6,7 @@ body {
     align-items: center; /*center vertically*/
     background-color: cornflowerblue;
     background-image: radial-gradient( white, lightblue, blue);
-    touch-action: none;
+    touch-action: auto;
 }
 h1{
     font-family: 'Bangers', cursive;
@@ -69,6 +69,7 @@ h3{
     width: 100px;
     font-size: 70px;
     text-align: center;
+    touch-action: auto;
 
 }
 
