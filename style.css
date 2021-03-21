@@ -6,7 +6,7 @@ body {
     align-items: center; /*center vertically*/
     background-color: cornflowerblue;
     background-image: radial-gradient( white, lightblue, blue);
-    touch-action: auto;
+    touch-action: none;
 }
 h1{
     font-family: 'Bangers', cursive;
