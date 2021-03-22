@@ -25,6 +25,9 @@ xPiece.addEventListener('touchend', onDrop);
 //drag and drop functions
 function drag(event){
     event.dataTransfer.setData('text/plain', event.target.id);
+    let touch = event.targetTouches[0];
+    xPiece.style.left = touchLocation.pageX + 'px';
+    xPiece.style.top = touchLocation.pageY + 'px';
 }
 function onDragOver(event){
     event.preventDefault();
