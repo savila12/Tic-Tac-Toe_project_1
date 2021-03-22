@@ -174,4 +174,5 @@ function resetGame(event) {
     document.getElementById('box9').classList.remove('winblink');
 }
 
-
+xPiece.addEventListener('touch', drag);
+oPiece.addEventListener('touch', drag);
