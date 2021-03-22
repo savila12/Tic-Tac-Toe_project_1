@@ -19,6 +19,9 @@ let nextTurn = (turn) => {
     }
 }
 
+xPiece.addEventListener('touchstart', drag);
+xPiece.addEventListener('touchmove', onDragOver);
+xPiece.addEventListener('touchend', onDrop);
 //drag and drop functions
 function drag(event){
     event.dataTransfer.setData('text/plain', event.target.id);
@@ -174,7 +177,7 @@ function resetGame(event) {
     document.getElementById('box9').classList.remove('winblink');
 }
 
-xPiece.addEventListener('touchstart', drag);
-xPiece.addEventListener('touchmove', onDragOver);
-xPiece.addEventListener('touchend', onDrop);
-oPiece.addEventListener('touchstart', drag);
+// xPiece.addEventListener('touchstart', drag);
+// xPiece.addEventListener('touchmove', onDragOver);
+// xPiece.addEventListener('touchend', onDrop);
+// oPiece.addEventListener('touchstart', drag);
