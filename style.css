@@ -6,7 +6,7 @@ body {
     align-items: center; /*center vertically*/
     background-color: cornflowerblue;
     background-image: radial-gradient( white, lightblue, blue);
-    touch-action: auto;
+
 }
 h1{
     font-family: 'Bangers', cursive;
@@ -47,7 +47,7 @@ h3{
     width: 125px;
     font-size: 70px;
     font-family: 'Bangers', cursive;
-    touch-action: auto;
+
 
 }
 
@@ -61,7 +61,7 @@ h3{
     align-items: center;
     justify-content: center;
     font-family: 'Bangers', cursive;
-    touch-action: auto;
+
 }
 
 .button {
@@ -69,7 +69,7 @@ h3{
     width: 100px;
     font-size: 70px;
     text-align: center;
-    touch-action: auto;
+
 
 }
 
@@ -87,7 +87,7 @@ h3{
     align-items: center;
     justify-content: center;
     font-family: 'Bangers', cursive;
-    touch-action: auto;
+
 }
 
 #box1 {
