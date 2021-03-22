@@ -175,4 +175,6 @@ function resetGame(event) {
 }
 
 xPiece.addEventListener('touchstart', drag);
+xPiece.addEventListener('touchmove', onDragOver);
+xPiece.addEventListener('touchend', onDrop);
 oPiece.addEventListener('touchstart', drag);
